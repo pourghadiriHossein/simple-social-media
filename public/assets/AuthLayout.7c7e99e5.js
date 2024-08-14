@@ -1,0 +1,1 @@
+import{Q as o}from"./QLayout.5ceb6755.js";import{_ as t,r,o as a,c,w as s,a as n}from"./index.97d5dc32.js";const _={};function u(f,i){const e=r("router-view");return a(),c(o,{class:"auth-background"},{default:s(()=>[n(e)]),_:1})}var d=t(_,[["render",u]]);export{d as default};

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Media;
 use App\Models\Post;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 abstract class Controller
 {
     function paginatedSuccessResponse($data, $name)
@@ -54,7 +54,7 @@ abstract class Controller
     {
         if ($media) {
             foreach ($media as $file) {
-                File::delete($file->url);
+                Storage::delete($file->url);
                 $file->delete();
             }
         }
@@ -72,7 +72,7 @@ abstract class Controller
         $media = new Media([
             'size' => $file->getSize(),
             'mime_type' => $file->getMimeType(),
-            'url' => 'storage/media/' . $name
+            'url' => 'public/media/' . $name
         ]);
         $media->admin()->associate($admin_id);
         $media->save();

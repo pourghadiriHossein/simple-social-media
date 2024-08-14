@@ -1,0 +1,1 @@
+import{b as n,u as s}from"./index.97d5dc32.js";var u=n(async({urlPath:i,redirect:o})=>{const e=s();if(e.import(),i.includes("dashboard")&&!i.includes("login")){if(!e.isAuthorized){o({name:"login"});return}}else if(i.includes("login")&&e.isAuthorized){o({name:"index"});return}});export{u as default};

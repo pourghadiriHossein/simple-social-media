@@ -41,10 +41,11 @@ Route::group([
 Route::group([
     'prefix' => 'post'
 ], function () {
-    Route::get('/all-post', [PostController::class, 'index'])->middleware(Admin::class);
+    Route::get('/all-post', [PostController::class, 'index'])->middleware(AuthOrAdmin::class);
     Route::post('/create-post', [PostController::class, 'store'])->middleware(Admin::class);
     Route::post('/update-post/{post}', [PostController::class, 'update'])->middleware(Admin::class);
     Route::delete('/delete-post/{post}', [PostController::class, 'destroy'])->middleware(Admin::class);
+    Route::get('show-file/{media}',[PostController::class, 'show'])->middleware(AuthOrAdmin::class);
 });
 
 // Route::Group([
